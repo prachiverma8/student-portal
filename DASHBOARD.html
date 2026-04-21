@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="DASHBOARD.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="DASHBOARD.js" defer></script>
+  <title>IGDTUW</title>
+</head>
+
+<body>
+  <h1>INDIRA GANDHI DELHI TECHNICAL UNIVERSITY FOR WOMEN</h1>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="left-section">
+      <h2>DASHBOARD</h2>
+    </div>
+    <div class="right-section">
+      <a href="loginpage.html"><button class="nav-btn" id="logoutBtn" >Logout</button></a>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid-container">
+    <!-- Student Profile -->
+    <div class="box profile-box">
+      <h2>Student Profile</h2>
+
+      <div class="studentprofile vertical-profile">
+        <div class="profile-container">
+          <img id="studentImagePreview" src="default avatar.webp" alt="Profile Picture" />
+          <input type="file" id="studentImage" accept="image/*" /><br /><br />
+          <button id="removeImage">Remove</button>
+        </div>
+
+        <div class="info">
+          Name: Prachi Verma<br />
+          Email: prachiverma.cs@gmail.com<br />
+          Enrollment No: 14201012023 <br />
+          Course: B.Tech <br />
+          Branch: Computer Science <br />
+          Date of Birth: 01/01/2003 <br />
+          Gender: Female <br />
+          Contact No: +91-XXXXXXXXXX <br />
+          Address: ABC Street, Delhi <br />
+          Skills: HTML, CSS, JavaScript <br />
+          Hobbies: Reading, Coding <br />
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Academic Info -->
+    <div class="box academic-box">
+      <h2>Academic Info</h2>
+      <div class="info">
+        Semester: 5 <br />
+        Subjects: Data Structures, DBMS, OS, AI <br />
+        Attendance: 80% <br />
+        CGPA: 8.5 / 10 <br />
+        Achievements: Scholarship, Top 10% of class <br />
+        Projects: Mini Project on Chatbot Development <br />
+        Internships: Web Development Intern at XYZ Company <br />
+        Semester-wise GPA: <br />S1-8.2, <br />S2-8.5, <br />S3-8.7 <br />
+        Total Credits Completed: 90 / 120 <br />
+        Clubs: Coding Club, Robotics Club <br />
+        Certifications: Coursera ML Certificate <br />
+      </div>
+    </div>
+
+
+    <!-- Attendance Overview -->
+    <div class="box attendance-box">
+      <h2>Attendance Overview</h2>
+      <div class="chart-container">
+        <canvas id="attendanceChart"></canvas>
+        <div class="chart-text" id="chartValue">80%</div>
+      </div>
+      <div class="box calendar-box">
+        <h2>Mini Calendar</h2>
+        <div id="calendar-controls" style="text-align:center; margin-bottom:5px;">
+          <button id="prevMonth">←</button>
+          <span id="monthYear"></span>
+          <button id="nextMonth">→</button>
+        </div>
+        <div id="calendar"></div>
+      </div>
+    </div>
+
+    <!-- Notices -->
+    <div class="box notices-box">
+      <h2>Notices</h2>
+      <div class="info">
+        - Mid-term exams start on Nov 10<br />
+        - Library closed on Sunday
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="box quicklinks-box">
+      <h2>Quick Links</h2>
+      <div class="info">
+        <a href="grades.html">View Grades</a><br />
+        <a href="leave.html">Apply for Leave</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHART SCRIPT -->
+  <script>
+    const ctx = document.getElementById("attendanceChart");
+
+    const attendanceData = [80, 10, 10];
+    const total = attendanceData.reduce((a, b) => a + b, 0);
+    const presentPercentage = ((attendanceData[0] / total) * 100).toFixed(0);
+
+    document.getElementById(
+      "chartValue"
+    ).textContent = `${presentPercentage}%`;
+
+    new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: ["Present", "Absent", "Leave"],
+        datasets: [
+          {
+            data: attendanceData,
+            backgroundColor: ["#4caf50", "#e74c3c", "#f1c40f"],
+            borderWidth: 0,
+          },
+        ],
+      },
+      options: {
+        cutout: "50%",
+        plugins: {
+          legend: { position: "absolute" },
+          tooltip: {
+            callbacks: {
+              label: (context) => `${context.label}: ${context.parsed}%`,
+            },
+          },
+        },
+        animation: { animateRotate: true, animateScale: true },
+      },
+    });
+  </script>
+</body>
+
+</html>

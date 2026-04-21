@@ -1,0 +1,235 @@
+body {
+  background: linear-gradient(to right, #f0f4f8, #d9e4ec);
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* GRID LAYOUT */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 25px;
+  padding: 40px;
+}
+
+/* POSITIONING ALL BOXES */
+.profile-box {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.academic-box {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.attendance-box {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.notices-box {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+}
+
+.quicklinks-box {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* GENERAL BOX STYLING */
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+.box h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #f8f9fa;
+}
+
+.right-section {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #0056b3;
+}
+
+/* PROFILE AREA */
+.studentprofile {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-container img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #4caf50;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ATTENDANCE CHART */
+.chart-container {
+  width: 260px;
+  height: 260px;
+  position: relative;
+}
+
+#attendanceChart {
+  width: 100%;
+  height: 100%;
+}
+
+.chart-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.attendance-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.attendance-summary {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 250px;
+  height: fit-content;
+}
+
+.attendance-summary h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.attendance-summary p {
+  color: #444;
+  margin: 6px 0;
+}
+
+
+/* Calendar Box */
+.calendar-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#calendar {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.calendar-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  font-size: 14px;
+}
+
+.calendar-day,
+.calendar-date {
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.calendar-day {
+  font-weight: bold;
+  background: #ddd;
+}
+
+.calendar-date {
+  background: #f7f7f7;
+}
+
+.calendar-date.today {
+  background: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+
+/* Make student profile vertical */
+.studentprofile.vertical-profile {
+  display: flex;
+  flex-direction: column; /* Stack image and info vertically */
+  align-items: center; /* Center the image horizontally */
+}
+
+.studentprofile.vertical-profile .profile-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.studentprofile.vertical-profile .info {
+  margin-top: 15px;
+  text-align: left;
+  width: 100%;
+}
