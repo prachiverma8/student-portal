@@ -31,5 +31,5 @@ function resetPassword() {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Password reset successfully!");
-    window.location.href = "loginpage.html";
+    window.location.href = "index.html";
 }
