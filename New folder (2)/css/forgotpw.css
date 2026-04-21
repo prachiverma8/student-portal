@@ -1,0 +1,32 @@
+body {
+  background: linear-gradient(to right, #f0f4f8, #d9e4ec);
+  font-family: 'Times New Roman', Times, serif;
+}
+header{
+    background: linear-gradient(to right, #f0f4f8, #d9e4ec);
+    padding: 5px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+.content {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+#main{
+  text-align: center;
+  padding: 40px;
+  background: #fff5f5;
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+section{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+button{
+    border-radius: 8px;
+}
