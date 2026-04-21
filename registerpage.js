@@ -37,5 +37,5 @@ function register() {
     localStorage.setItem("users", JSON.stringify(users));
 
     alert("Registration successful!");
-    window.location.href = "loginpage.html";   // redirect to login page
+    window.location.href = "index.html";   // redirect to login page
 }
